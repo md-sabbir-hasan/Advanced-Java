@@ -1,20 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package employeecrud;
 
-/**
- *
- * @author Admin
- */
-public class EmployeeCRUD {
+import employeecrud.util.DbUtil;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-    /**
-     * @param args the command line arguments
-     */
+public class EmployeeCRUD {
+    static DbUtil du = new DbUtil();
+    static  PreparedStatement ps;
+    static String sql= "";
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+                
+    }
+    public static  void saveStu(String name, String email, String phone, double salary){
+        sql= "insert into empdata(name, email, phone, salary) values(?,?,?,?)";
+        try {
+            ps= du.getCon().prepareStatement(sql);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(EmployeeCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
     }
     
 }

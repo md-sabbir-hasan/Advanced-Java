@@ -21,6 +21,6 @@ public class DbUtil {
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DbUtil.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        return con;
     }
 }
