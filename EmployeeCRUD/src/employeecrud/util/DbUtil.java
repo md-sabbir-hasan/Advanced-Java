@@ -17,7 +17,7 @@ public class DbUtil {
     public Connection getCon(){
         try {
             Class.forName(driver);
-            DriverManager.getConnection(url, user, password);
+            con = DriverManager.getConnection(url, user, password);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DbUtil.class.getName()).log(Level.SEVERE, null, ex);
         }
