@@ -14,7 +14,7 @@ public class ClassPrac {
 
     public static void main(String[] args) {
 //        saveEmp("Sabbir", 10000, "p");
-deleteemp(2);
+//deleteemp(2);
        findEmp();
 //updateEmp(2, "sab", 500, "l=H");
        
