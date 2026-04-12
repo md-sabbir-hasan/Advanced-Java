@@ -2,9 +2,11 @@
 package employeecrud;
 
 import employeecrud.util.DbUtil;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,23 +16,51 @@ public class EmployeeCRUD {
     static String sql= "";
     
     public static void main(String[] args) {
+       
         
 //        saveStu("Thor", 50000, 1);
-//        saveStu("Hulk", 60000, 2);
+ //      saveStu("Hulk", 60000, 2);
+ 
+  
 
-findEmp();
-                
+//        deleteEmp(2);
+//updateEmp(1, "King", 5050, 1);
+       
+    findEmp();
+                  
     }
-    public static  void saveStu(String name, double salary, int department){
-        sql= "insert into employee(name, salary, department) values(?,?,?)";
+//        public class DbUtil {
+//
+//    private Connection con = null;
+//    private String url = "jdbc:mysql://localhost:3306/employees";
+//    private String user = "root";
+//    private String password = "1234";
+//    private String driver = "com.mysql.cj.jdbc.Driver";
+//    
+//    public Connection getCon(){
+//        try {
+//            Class.forName(driver);
+//            con = DriverManager.getConnection(url, user, password);
+//        } catch (ClassNotFoundException | SQLException ex) {
+//            Logger.getLogger(DbUtil.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return con;
+//    }
+//}
+    public static  void saveStu(String name, double salary, int department, Date join){
+        LocalDate localDate = LocalDate.now();
+        java.sql.Date sqlDate = java.sql.Date.valueOf(localDate);
+        
+        sql= "insert into employee(name, salary, department, join) values(?,?,?,?)";
         try {
             ps= du.getCon().prepareStatement(sql);
             ps.setString(1, name);
             ps.setDouble(2, salary);
             ps.setInt(3, department);
+            ps.setDate(4, sqlDate);
             
             System.out.println("Save Successfully");
-            System.out.println("_______________");
+            System.out.println("________________");
             ps.executeUpdate();
             ps.close();
             du.getCon().close();
