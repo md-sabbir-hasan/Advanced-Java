@@ -29,24 +29,7 @@ public class EmployeeCRUD {
     findEmp();
                   
     }
-//        public class DbUtil {
-//
-//    private Connection con = null;
-//    private String url = "jdbc:mysql://localhost:3306/employees";
-//    private String user = "root";
-//    private String password = "1234";
-//    private String driver = "com.mysql.cj.jdbc.Driver";
-//    
-//    public Connection getCon(){
-//        try {
-//            Class.forName(driver);
-//            con = DriverManager.getConnection(url, user, password);
-//        } catch (ClassNotFoundException | SQLException ex) {
-//            Logger.getLogger(DbUtil.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return con;
-//    }
-//}
+
     public static  void saveStu(String name, double salary, int department, Date join){
         LocalDate localDate = LocalDate.now();
         java.sql.Date sqlDate = java.sql.Date.valueOf(localDate);
